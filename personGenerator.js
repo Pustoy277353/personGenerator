@@ -116,9 +116,28 @@ const personGenerator = {
         return surname;
     },
 
-    randomPatronymic: function (gender) {
-        const patronymicJson = gender === this.GENDER_MALE ? this.patronymicMaleJson : this.patronymicFemaleJson;
-        return this.randomValue(patronymicJson);
+    randomPatronymic: function(gender) {
+        let patronymicName = this.randomValue(this.firstNameMaleJson);
+        
+        if (gender === this.GENDER_MALE) {
+            if (patronymicName.endsWith("й")) {
+                return patronymicName.substring(0, patronymicName.length - 1) + "евич";
+            } else if (patronymicName.endsWith("а")) {
+                return patronymicName.substring(0, patronymicName.length - 1) + "ич";
+            } else {
+                return patronymicName + "ович";
+            }
+        }
+    
+        if (gender === this.GENDER_FEMALE) {
+            if (patronymicName.endsWith("й")) {
+                return patronymicName.substring(0, patronymicName.length - 1) + "евна";
+            } else if (patronymicName.endsWith("а")) {
+                return patronymicName.substring(0, patronymicName.length - 1) + "ична";
+            } else {
+                return patronymicName + "овна";
+            }
+        }
     },
 
     randomProfession: function (gender) {
@@ -167,9 +186,9 @@ const personGenerator = {
         this.person.firstName = this.randomFirstName(this.person.gender);
         this.person.surname = this.randomSurname(this.person.gender);
         this.person.patronymic = this.randomPatronymic(this.person.gender);
-        this.person.profession = this.randomProfession(this.person.gender);
+        this.person.profession = this.randomProfession(this.person.gender);  // Fixed line
         this.person.birthDate = this.generateBirthDate();
         this.person.birthYear = this.randomYearOfBirth();
         return this.person;
-    }
+    },
 };
