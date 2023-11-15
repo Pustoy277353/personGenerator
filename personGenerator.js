@@ -50,26 +50,6 @@ const personGenerator = {
             "id_10": "Алина"
         }
     }`,
-    patronymicMaleJson: `{
-        "count": 5,
-        "list": {
-            "id_1": "Иванович",
-            "id_2": "Александрович",
-            "id_3": "Дмитриевич",
-            "id_4": "Николаевич",
-            "id_5": "Михайлович"
-        }
-    }`,
-    patronymicFemaleJson: `{
-        "count": 5,
-        "list": {
-            "id_1": "Ивановна",
-            "id_2": "Александровна",
-            "id_3": "Дмитриевна",
-            "id_4": "Николаевна",
-            "id_5": "Михайловна"
-        }
-    }`,
     professionMaleJson: `{
         "count": 5,
         "list": {
